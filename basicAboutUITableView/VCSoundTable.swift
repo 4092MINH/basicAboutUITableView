@@ -21,25 +21,35 @@ class VCSoundTable: UIViewController {
     @IBOutlet weak var soundTable: UITableView!
     @IBOutlet weak var btnPlayPause: UIButton!
     @IBOutlet weak var btnResetSound: UIButton!
-    
+    @IBOutlet weak var btnStopSound: UIButton!
     
     @IBAction func PlayPauseSound(_ sender: UIButton) {
         if audioPlayer.isPlaying {
             audioPlayer.pause()
-            btnPlayPause.setTitle("Play", for: .normal)
+            btnPlayPause.setTitle("Play Sound", for: .normal)
             btnPlayPause.tintColor = .green
         } else {
             audioPlayer.play()
-            btnPlayPause.setTitle("Pause", for: .normal)
+            btnPlayPause.setTitle("Pause Sound", for: .normal)
             btnPlayPause.tintColor = .orange
         }
     }
-    
     @IBAction func ResetSound(_ sender: UIButton) {
+        audioPlayer.currentTime = 0
+        audioPlayer.play()
+        //audioPlayer.stop()
+        //btnPlayPause.isHidden = true
+        //btnResetSound.isHidden = true
+        btnPlayPause.setTitle("Pause Sound", for: .normal)
+        btnPlayPause.tintColor = .orange
+    }
+    
+    @IBAction func StopSound(_ sender: UIButton) {
         audioPlayer.currentTime = 0
         audioPlayer.stop()
         btnPlayPause.isHidden = true
         btnResetSound.isHidden = true
+        btnStopSound.isHidden = true
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +57,7 @@ class VCSoundTable: UIViewController {
         soundTable.dataSource = self
         btnPlayPause.isHidden = true
         btnResetSound.isHidden = true
+        btnStopSound.isHidden = true
     }
 }
 extension VCSoundTable: UITableViewDelegate, UITableViewDataSource {
@@ -72,8 +83,9 @@ extension VCSoundTable: UITableViewDelegate, UITableViewDataSource {
             print("Can't play")
         }
         btnPlayPause.isHidden = false
-        btnPlayPause.setTitle("Pause", for: .normal)
-        btnPlayPause.tintColor = .orange
+        btnStopSound.isHidden = false
         btnResetSound.isHidden = false
+        btnPlayPause.setTitle("Pause Sound", for: .normal)
+        btnPlayPause.tintColor = .orange
     }
 }

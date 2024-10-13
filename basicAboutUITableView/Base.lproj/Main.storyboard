@@ -33,7 +33,7 @@
                                 </prototypes>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tnL-HK-Rpd">
-                                <rect key="frame" x="142" y="728" width="109" height="39"/>
+                                <rect key="frame" x="120" y="653" width="153" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" systemColor="systemGreenColor"/>
                                 <state key="normal" title="Button"/>
@@ -43,13 +43,23 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="an6-ow-Fwe">
-                                <rect key="frame" x="136" y="775" width="121" height="39"/>
+                                <rect key="frame" x="120" y="700" width="153" height="39"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <color key="tintColor" systemColor="systemBlueColor"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Reset Sound"/>
                                 <connections>
                                     <action selector="ResetSound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jMO-yG-DqE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YIQ-6B-Oqb">
+                                <rect key="frame" x="120" y="747" width="153" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Stop Sound"/>
+                                <connections>
+                                    <action selector="StopSound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RYP-1h-in3"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -59,6 +69,7 @@
                     <connections>
                         <outlet property="btnPlayPause" destination="tnL-HK-Rpd" id="qAb-nA-jat"/>
                         <outlet property="btnResetSound" destination="an6-ow-Fwe" id="IXI-PL-FXU"/>
+                        <outlet property="btnStopSound" destination="YIQ-6B-Oqb" id="cvj-A1-HYX"/>
                         <outlet property="soundTable" destination="GEk-Ox-ItR" id="EmE-ve-AzY"/>
                     </connections>
                 </viewController>
@@ -73,6 +84,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
