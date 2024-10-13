@@ -22,7 +22,8 @@ class VCSoundTable: UIViewController {
     @IBOutlet weak var btnPlayPause: UIButton!
     @IBOutlet weak var btnResetSound: UIButton!
     @IBOutlet weak var btnStopSound: UIButton!
-    
+    @IBOutlet weak var btnChangeVolume: UISlider!
+    @IBOutlet weak var lblVolume: UILabel!
     @IBAction func PlayPauseSound(_ sender: UIButton) {
         if audioPlayer.isPlaying {
             audioPlayer.pause()
@@ -50,6 +51,13 @@ class VCSoundTable: UIViewController {
         btnPlayPause.isHidden = true
         btnResetSound.isHidden = true
         btnStopSound.isHidden = true
+        btnChangeVolume.isHidden = true
+        lblVolume.isHidden = true
+    }
+    
+    @IBAction func volumeChange(_ sender: UISlider) {
+        audioPlayer.volume = sender.value
+        lblVolume.text = "Volume: \(Int(sender.value * 100))%"
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +66,8 @@ class VCSoundTable: UIViewController {
         btnPlayPause.isHidden = true
         btnResetSound.isHidden = true
         btnStopSound.isHidden = true
+        btnChangeVolume.isHidden = true
+        lblVolume.isHidden = true
     }
 }
 extension VCSoundTable: UITableViewDelegate, UITableViewDataSource {
@@ -85,6 +95,8 @@ extension VCSoundTable: UITableViewDelegate, UITableViewDataSource {
         btnPlayPause.isHidden = false
         btnStopSound.isHidden = false
         btnResetSound.isHidden = false
+        btnChangeVolume.isHidden = false
+        lblVolume.isHidden = false
         btnPlayPause.setTitle("Pause Sound", for: .normal)
         btnPlayPause.tintColor = .orange
     }
